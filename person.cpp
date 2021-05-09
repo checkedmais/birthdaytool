@@ -14,6 +14,17 @@ Person::Person(const Person& other) : name{other.name}, birthday{other.birthday}
  //   name = other.name;
 }
 
+std::string Person::getName()
+{
+    return name;
+}
+
+std::string Person::getBirthday()
+{
+    return birthday.getFormattedDate();
+}
+
+
 Person::~Person()
 {
 

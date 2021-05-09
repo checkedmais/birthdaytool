@@ -51,6 +51,9 @@ public:
      */
     bool operator!=(const Person& other) const;
 
+    std::string getName();
+    std::string getBirthday();
+    
 private:
     std::string name;
     Date birthday;
