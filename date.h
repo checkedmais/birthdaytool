@@ -9,7 +9,7 @@ class Date
 
 public:
     Date(int day, int month, int year);
-
+    Date(const Date &other);
 private:
     int year=0;
     int month;
