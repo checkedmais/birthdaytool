@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(birthdaytool)
 
-add_executable(birthdaytool main.cpp)
+file(GLOB SOURCES "*.cpp")
+
+add_executable(birthdaytool ${SOURCES})
 
 install(TARGETS birthdaytool RUNTIME DESTINATION bin)
