@@ -3,7 +3,7 @@
 #include <string>
 
 
-Person::Person(std::string name, Date date) : name{name}, birthday{date}
+Person::Person(std::string name, Date date, bool family) : name{name}, birthday{date}, family{family}
 {
 
 }

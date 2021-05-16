@@ -13,7 +13,7 @@ public:
     /**
      * Default constructor
      */
-    Person(std::string name, Date date);
+    Person(std::string name, Date date, bool family);
 
     /**
      * Copy constructor
@@ -57,6 +57,7 @@ public:
 private:
     std::string name;
     Date birthday;
+    bool family = false;
 };
 
 #endif // PERSON_H
