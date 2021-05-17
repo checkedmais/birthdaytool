@@ -15,12 +15,10 @@ Person::Person(const Person& other) : name{other.name}, birthday{other.birthday}
  //   name = other.name;
 }
 
-Person::Person(std::string name, std::string dateFamily) : name{name}
+Person::Person(std::string name, std::string dateFamily) : name{name}, family{false}
 {
- //       bool familyMember = false;   
         std::stringstream h;
         auto it = dateFamily.begin();
-     //   std::cout<<name<<dateFamily<<std::endl;
         //day
         h<<*it<<*(++it);
         int day; 
@@ -47,7 +45,6 @@ Person::Person(std::string name, std::string dateFamily) : name{name}
         
         if((++it) != dateFamily.end()) //extra signs mean family
         {
-            //familyMember = true;
             family = true;
         }
         

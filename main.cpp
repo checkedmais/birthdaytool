@@ -52,7 +52,6 @@ int main(int argc, char **argv) {
                 printHelp();
                 return 0;
             }
-            //TODO: add person
             
             addHelper.push_back(Person(argv[i+1], argv[i+2]));
             i += 2;
