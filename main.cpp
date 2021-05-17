@@ -2,6 +2,7 @@
 #include "date.h"
 #include "person.h"
 #include "personlist.h"
+#include "personlistiterator.h"
 
 int main(int argc, char **argv) {
    // std::cout << "Hello, world!" << std::endl;
