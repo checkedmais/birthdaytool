@@ -7,11 +7,13 @@
 int main(int argc, char **argv) {
    // std::cout << "Hello, world!" << std::endl;
   // Person alex("alex", Date(7,2,2001), true);
-   // std::cout<<alex.getName()<<alex.getBirthday();
-    PersonList list("dates");
-    list.addPerson(Person("peter", Date(20,2,2001), false));
-    list.pr();
-    list.save();
+  // // std::cout<<alex.getName()<<alex.getBirthday();
+  //  PersonList list("dates");
+  //  list.addPerson(Person("peter", Date(20,2,2001), false));
+  //  list.pr();
+  //  list.save();
+    Date today = Date();
+    std::cout<<today.getFormattedDate();
     return 0;
 }
 

@@ -12,6 +12,7 @@ class Date
 public:
     Date(int day, int month, int year);
     Date(const Date &other);
+    Date();
     std::string getFormattedDate();
     bool operator<=(const Date &other);
 private:

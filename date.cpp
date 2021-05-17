@@ -1,5 +1,6 @@
 #include "date.h"
 #include <sstream>
+#include <ctime>
 
 Date::Date(int day, int month, int year) : year{year}, month{month}, day{day}
 {
@@ -11,6 +12,16 @@ Date::Date(const Date& other)
     month = other.month;
     year = other.year;
 }
+
+Date::Date() //current date
+{
+    time_t now = time(0);
+    tm* today = gmtime(&now);
+    day = today->tm_mday;
+    month = today->tm_mon + 1;
+    year = 1900 + today->tm_year;
+}
+
 
 std::string Date::getFormattedDate()
 {
