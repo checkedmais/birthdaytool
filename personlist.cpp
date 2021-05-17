@@ -87,8 +87,12 @@ void PersonList::writeListToFile() //todo: test
     {
         file << (*it).getName(); //name
         file << " | "; //seperator
-        file << (*it).getBirthday(); //date
-        file << ((*it).isFamily() ? "f" : "") << std::endl; //family
+        file << (*it).getBirthday(); //date - this is broken, because 02. is the 2.
+        if((*it).isFamily())
+        {
+            file << "f";
+        }
+        file << std::endl; //family
     }
     file.close();
 }

@@ -15,7 +15,7 @@ Date::Date(const Date& other)
 std::string Date::getFormattedDate()
 {
     std::stringstream helper;
-    helper << day << ". " << month << " " << year;
+    helper << (day < 10 ? "0" : "") <<day << "." << (day < 10 ? "0" :"") << month << "." << year;
     return helper.str();
 }
 
