@@ -2,6 +2,7 @@
 #define PERSONLIST_H
 
 #include "person.h"
+#include "personlistiterator.h"
 #include <list>
 #include <string>
 
@@ -20,6 +21,7 @@ public:
     void pr();
     void save();
     void addPerson(const Person other);
+    PersonListIterator begin();
 };
 
 #endif // PERSONLIST_H
