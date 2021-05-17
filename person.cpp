@@ -49,3 +49,8 @@ bool Person::operator!=(const Person& other) const
 {
 
 }
+
+bool Person::operator<=(const Person& other)
+{
+    return birthday <= other.birthday;
+}
