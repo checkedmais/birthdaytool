@@ -30,7 +30,7 @@ void PersonList::retrieveListFromFile()
         }
         if(parseDate)
         {
-            bool familyMember = false;   
+  /*          bool familyMember = false;   
             std::stringstream h;
             auto it = input.begin();
             
@@ -67,6 +67,10 @@ void PersonList::retrieveListFromFile()
             Date date(day, month, year);
             pList.push_back(Person(personName.str(), date, familyMember)); 
             
+            personName.str(std::string()); //reset personName
+            personName.clear();
+            parseDate = false; */
+            pList.push_back(Person(personName.str(), input));
             personName.str(std::string()); //reset personName
             personName.clear();
             parseDate = false;

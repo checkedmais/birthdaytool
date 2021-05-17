@@ -22,6 +22,8 @@ public:
      */
     Person(const Person& other);
 
+    Person(std::string name, std::string dateFamily);
+    
     /**
      * Destructor
      */
