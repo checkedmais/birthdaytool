@@ -110,3 +110,13 @@ void PersonList::pr()
         std::cout<<"1. "<<(*it).getName()<<(*it).getBirthday()<<std::endl;
     }
 }
+
+void PersonList::addPerson(const Person other)
+{
+    auto it = pList.begin();
+    while((*it) <= other)
+    {
+        ++it;
+    }
+    pList.insert(it, other);
+}

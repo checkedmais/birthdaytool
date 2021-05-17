@@ -19,6 +19,7 @@ public:
     PersonList(std::string filePath);
     void pr();
     void save();
+    void addPerson(const Person other);
 };
 
 #endif // PERSONLIST_H

@@ -8,6 +8,7 @@ int main(int argc, char **argv) {
   // Person alex("alex", Date(7,2,2001), true);
    // std::cout<<alex.getName()<<alex.getBirthday();
     PersonList list("dates");
+    list.addPerson(Person("peter", Date(20,2,2001), false));
     list.pr();
     list.save();
     return 0;
