@@ -2,7 +2,6 @@
 #define PERSONLISTITERATOR_H
 
 #include <list>
-//#include "personlist.h"
 #include "person.h"
 
 /**
@@ -13,13 +12,17 @@ class PersonListIterator
 private:
     std::list<Person>* pList_pointer;
     std::list<Person>::iterator it;
+    std::list<Person>::iterator begin;
 public:
     /**
      * Default constructor
      */
     PersonListIterator(std::list<Person>* pList_pointer);
+    PersonListIterator(std::list<Person>* pList_pointer, bool end);
     PersonListIterator& operator++();
     Person& operator*();
+    bool operator==(const PersonListIterator &other);
+    bool operator!=(const PersonListIterator &other);
 };
 
 #endif // PERSONLISTITERATOR_H

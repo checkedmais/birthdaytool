@@ -9,11 +9,9 @@ int main(int argc, char **argv) {
   // Person alex("alex", Date(7,2,2001), true);
   // // std::cout<<alex.getName()<<alex.getBirthday();
     PersonList list("dates");
-    auto it = list.begin();
-    for(int i = 0; i < 10; i++)
+    for(auto it = list.begin(); it != list.end(); ++it) 
     {
         std::cout<<(*it).getName()<<(*it).getBirthday()<<std::endl;
-        ++it;
     }
     list.save();
     return 0;

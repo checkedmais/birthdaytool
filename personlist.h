@@ -21,7 +21,8 @@ public:
     void pr();
     void save();
     void addPerson(const Person other);
-    PersonListIterator begin();
+    PersonListIterator begin(); //todo: think about how this could be done more efficiently
+    PersonListIterator end();
 };
 
 #endif // PERSONLIST_H

@@ -126,3 +126,8 @@ PersonListIterator PersonList::begin()
     return PersonListIterator(&pList);
 }
 
+PersonListIterator PersonList::end()
+{
+    return PersonListIterator(&pList, true);
+}
+

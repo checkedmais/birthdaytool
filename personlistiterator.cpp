@@ -1,6 +1,5 @@
 #include "personlistiterator.h"
 #include <list>
-//#include "personlist.h"
 #include "person.h"
 #include "date.h"
 #include <iostream>
@@ -13,7 +12,17 @@ PersonListIterator::PersonListIterator(std::list<Person>* pList_pointer) : pList
     {
         ++it;
     }
+    begin = it;
 }
+
+PersonListIterator::PersonListIterator(std::list<Person>* pList_pointer, bool end) : PersonListIterator(pList_pointer)
+{
+    if(end)
+    {
+        it = pList_pointer->end();
+    }
+}
+
 
 PersonListIterator & PersonListIterator::operator++()
 {
@@ -21,10 +30,24 @@ PersonListIterator & PersonListIterator::operator++()
     {
         it = pList_pointer->begin();
     }
+    if(it == begin)
+    {
+        it = pList_pointer->end();
+    }
     return *this;
 }
 
 Person & PersonListIterator::operator*()
 {
     return *it;
+}
+
+bool PersonListIterator::operator==(const PersonListIterator& other)
+{
+    return other.it == this->it;
+}
+
+bool PersonListIterator::operator!=(const PersonListIterator& other)
+{
+    return !(*this == other);
 }
