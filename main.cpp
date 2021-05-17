@@ -11,6 +11,7 @@ void printHelp();
 int main(int argc, char **argv) {
     std::string fileName = "dates";
     bool fileSet = false;
+    std::vector<Person> addHelper;
  /*   if(argc == 1)  //no arguments, standard procedure
     {
         PersonList list("dates"); //standard file
@@ -53,15 +54,27 @@ int main(int argc, char **argv) {
             }
             //TODO: add person
             
-            std::string name_helper = argv[i+1];
-            std::string date_helper = argv[i+2];
+            addHelper.push_back(Person(argv[i+1], argv[i+2]));
+            i += 2;
         }
     }
+    
+    
     PersonList list(fileName); //TODO: check for emptyness
+    
+    for(auto it = addHelper.begin(); it != addHelper.end(); ++it)
+    {
+        list.addPerson(*it); //add new persons to the list
+    }
+    
     for(auto it = list.begin(); it != list.end(); ++it) //cycle through the birthdays
     {                                                   //PersonListIterator ensures that the order of dates is good
         std::cout<<(*it).getName()<<(*it).getBirthday()<<std::endl;
-    }  
+    }
+    if(addHelper.empty() == false) //if we added something, save the list
+    {
+        list.save();
+    }
     return 0;
 }
 
