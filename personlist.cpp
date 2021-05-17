@@ -59,14 +59,13 @@ void PersonList::retrieveListFromFile()
             int year;
             h >> year;
             
-            if(++it != input.end()) //extra signs mean family
+            if((++it) != input.end()) //extra signs mean family
             {
                 familyMember = true;
             }
             
             Date date(day, month, year);
-            pList.push_back(Person(personName.str(), date, familyMember)); //todo: handle family / check if it works 
-            
+            pList.push_back(Person(personName.str(), date, familyMember)); 
             
             personName.str(std::string()); //reset personName
             personName.clear();
@@ -78,7 +77,7 @@ void PersonList::retrieveListFromFile()
     file.close();
 }
 
-void PersonList::writeListToFile() //todo: test
+void PersonList::writeListToFile()
 {
     std::ofstream file;
     file.open(path, std::ofstream::out); //replace previous content
@@ -87,7 +86,7 @@ void PersonList::writeListToFile() //todo: test
     {
         file << (*it).getName(); //name
         file << " | "; //seperator
-        file << (*it).getBirthday(); //date - this is broken, because 02. is the 2.
+        file << (*it).getBirthday(); //date
         if((*it).isFamily())
         {
             file << "f";
@@ -111,12 +110,21 @@ void PersonList::pr()
     }
 }
 
-void PersonList::addPerson(const Person other)
+void PersonList::addPerson(const Person& other)
 {
+    if(pList.empty())
+    {
+        pList.push_back(other);
+        return;
+    }
     auto it = pList.begin();
     while((*it) <= other)
     {
         ++it;
+        if(it == pList.end())
+        {
+            break;
+        }
     }
     pList.insert(it, other);
 }

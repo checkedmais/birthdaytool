@@ -33,23 +33,6 @@ public:
      * @param other TODO
      * @return TODO
      */
-    Person& operator=(const Person& other);
-
-    /**
-     * @todo write docs
-     *
-     * @param other TODO
-     * @return TODO
-     */
-    bool operator==(const Person& other) const;
-
-    /**
-     * @todo write docs
-     *
-     * @param other TODO
-     * @return TODO
-     */
-    bool operator!=(const Person& other) const;
 
     std::string getName();
     std::string getBirthday();
@@ -59,7 +42,7 @@ public:
 private:
     std::string name;
     Date birthday;
-    bool family = false;
+    bool family;
 };
 
 #endif // PERSON_H

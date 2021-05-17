@@ -8,7 +8,7 @@ Person::Person(std::string name, Date date, bool family) : name{name}, birthday{
 
 }
 
-Person::Person(const Person& other) : name{other.name}, birthday{other.birthday}
+Person::Person(const Person& other) : name{other.name}, birthday{other.birthday}, family{other.family}
 {
  //   birthday{Date(other.birthday)};
  //   name = other.name;
@@ -31,21 +31,6 @@ bool Person::isFamily()
 
 
 Person::~Person()
-{
-
-}
-
-Person& Person::operator=(const Person& other)
-{
-
-}
-
-bool Person::operator==(const Person& other) const
-{
-
-}
-
-bool Person::operator!=(const Person& other) const
 {
 
 }

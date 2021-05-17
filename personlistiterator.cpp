@@ -8,9 +8,14 @@ PersonListIterator::PersonListIterator(std::list<Person>* pList_pointer) : pList
 {
     it = pList_pointer->begin();
     Person TodayPerson("", Date(), false);
-    while((*it) <= TodayPerson)
+    while((*it) <= TodayPerson) //TODO: check if their birthday is today
     {
         ++it;
+        if(it == pList_pointer->end())  // this means every birthday of the current year has already happened
+        {
+            it = pList_pointer->begin();
+            break;
+        }
     }
     begin = it;
 }

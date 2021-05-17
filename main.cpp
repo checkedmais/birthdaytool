@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     {
         std::cout<<(*it).getName()<<(*it).getBirthday()<<std::endl;
     }
-    list.save();
+    list.save(); 
     return 0;
 }
 
