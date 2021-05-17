@@ -75,7 +75,29 @@ void PersonList::retrieveListFromFile()
         }
         personName << input;
     }
+    file.close();
 }
+
+void PersonList::writeListToFile() //todo: test
+{
+    std::ofstream file;
+    file.open(path, std::ofstream::out); //replace previous content
+    
+    for(auto it = pList.begin(); it != pList.end(); ++it)
+    {
+        file << (*it).getName(); //name
+        file << " | "; //seperator
+        file << (*it).getBirthday(); //date
+        file << ((*it).isFamily() ? "f" : "") << std::endl; //family
+    }
+    file.close();
+}
+
+void PersonList::save()
+{
+    writeListToFile();
+}
+
 
 void PersonList::pr()
 {

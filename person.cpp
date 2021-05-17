@@ -24,6 +24,11 @@ std::string Person::getBirthday()
     return birthday.getFormattedDate();
 }
 
+bool Person::isFamily()
+{
+    return family;
+}
+
 
 Person::~Person()
 {

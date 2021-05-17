@@ -53,6 +53,7 @@ public:
 
     std::string getName();
     std::string getBirthday();
+    bool isFamily();
     
 private:
     std::string name;

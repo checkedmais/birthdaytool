@@ -14,9 +14,11 @@ private:
     std::list<Person> pList;
     std::string path;
     void retrieveListFromFile();
+    void writeListToFile();
 public:
     PersonList(std::string filePath);
     void pr();
+    void save();
 };
 
 #endif // PERSONLIST_H

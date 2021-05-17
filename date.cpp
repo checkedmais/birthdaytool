@@ -18,3 +18,22 @@ std::string Date::getFormattedDate()
     helper << day << ". " << month << " " << year;
     return helper.str();
 }
+
+bool Date::operator<=(const Date& other)
+{
+    bool result = this->month < other.month;
+    if(result)
+    {
+        return result; // true
+    }
+    if(this->month > other.month)
+    {
+        return result; //false
+    }
+    if(this->day <= other.day)
+    {
+        return true;
+    }
+    return false;
+}
+
