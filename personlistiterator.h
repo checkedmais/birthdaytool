@@ -18,7 +18,8 @@ public:
      * Default constructor
      */
     PersonListIterator(std::list<Person>* pList_pointer);
-
+    PersonListIterator& operator++();
+    Person& operator*();
 };
 
 #endif // PERSONLISTITERATOR_H

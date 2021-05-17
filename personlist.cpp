@@ -120,3 +120,9 @@ void PersonList::addPerson(const Person other)
     }
     pList.insert(it, other);
 }
+
+PersonListIterator PersonList::begin()
+{
+    return PersonListIterator(&pList);
+}
+
