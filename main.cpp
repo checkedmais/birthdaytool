@@ -5,6 +5,7 @@
 #include "person.h"
 #include "personlist.h"
 #include "personlistiterator.h"
+#include "personlistloopiterator.h"
 
 void printHelp();
 
@@ -62,13 +63,21 @@ int main(int argc, char **argv) {
     
     for(auto it = list.begin(); it != list.end(); ++it) //cycle through the birthdays
     {                                                   //PersonListIterator ensures that the order of dates is good
-        std::cout<<(*it).getName()<<(*it).getBirthday()<<std::endl;
+    //    std::cout<<(*it).getName()<<(*it).getBirthday()<<std::endl;
     }
+    auto itl = list.beginl();
+    for(int q = 0; q < 8; q++)
+    {
+        std::cout<<(*itl).getName();
+        ++itl;
+    }
+        
     
     if(addHelper.empty() == false) //if we added something, save the list
     {
         list.save();
     }
+    
     return 0;
 }
 
