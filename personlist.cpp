@@ -44,7 +44,7 @@ void PersonList::retrieveListFromFile()
             parseDate = false;
             continue;
         }
-        personName << input;
+        personName << input <<" ";
     }
     file.close();
 }
