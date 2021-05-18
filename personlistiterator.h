@@ -9,7 +9,7 @@
  */
 class PersonListIterator
 {
-private:
+protected:
     std::list<Person>* pList_pointer;
     std::list<Person>::iterator it;
     std::list<Person>::iterator begin;

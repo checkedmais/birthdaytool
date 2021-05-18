@@ -143,3 +143,8 @@ PersonListIterator PersonList::end()
     return PersonListIterator(&pList, true);
 }
 
+PersonListLoopIterator PersonList::beginl()
+{
+    return PersonListLoopIterator(&pList);
+}
+

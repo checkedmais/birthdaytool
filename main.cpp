@@ -12,16 +12,7 @@ int main(int argc, char **argv) {
     std::string fileName = "dates";
     bool fileSet = false;
     std::vector<Person> addHelper;
- /*   if(argc == 1)  //no arguments, standard procedure
-    {
-        PersonList list("dates"); //standard file
-        for(auto it = list.begin(); it != list.end(); ++it) //cycle through the birthdays
-        {                                                   //PersonListIterator ensures that the order of dates is good
-            std::cout<<(*it).getName()<<(*it).getBirthday()<<std::endl;
-        }   
-        return 0;
-    } */
-    
+
     for(int i = 1; i < argc; i++)
     {
         std::string arg = argv[i];
@@ -56,6 +47,9 @@ int main(int argc, char **argv) {
             addHelper.push_back(Person(argv[i+1], argv[i+2]));
             i += 2;
         }
+        //it is not something we recognize
+        printHelp();
+        return 0;
     }
     
     
@@ -70,6 +64,7 @@ int main(int argc, char **argv) {
     {                                                   //PersonListIterator ensures that the order of dates is good
         std::cout<<(*it).getName()<<(*it).getBirthday()<<std::endl;
     }
+    
     if(addHelper.empty() == false) //if we added something, save the list
     {
         list.save();
