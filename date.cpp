@@ -37,6 +37,16 @@ std::string Date::getFormattedDate()
 
 bool Date::operator<=(const Date& other)
 {
+    bool result = (*this < other);
+    if(result)
+    {
+        return result;
+    }
+    return (this->day == other.day) && (this->month == other.month);
+}
+
+bool Date::operator<(const Date& other)
+{
     bool result = (this->month) < other.month;
     if(result)
     {
@@ -46,10 +56,10 @@ bool Date::operator<=(const Date& other)
     {
         return result; //false
     }
-    if((this->day) <= other.day)
+    //remaining case: same month
+    if((this->day) < other.day)
     {
         return true;
     }
     return false;
 }
-
