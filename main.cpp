@@ -3,6 +3,7 @@
 #include <vector>
 #include <sstream>
 #include <iomanip>
+#include <cstdlib>
 #include "date.h"
 #include "person.h"
 #include "personlist.h"
@@ -13,7 +14,11 @@ void printHelp(std::string name);
 void printFormatted(std::ostream &out, int width, std::string text);
 
 int main(int argc, char **argv) {
-    std::string fileName = "dates";
+    
+    std::string homeDirectory = getenv("HOME"); //TODO: do it platform independent
+    std::string fileName = homeDirectory;
+    fileName.append("/.config/bdaytoolsdates");
+    
     bool fileSet = false;
     std::vector<Person> addHelper;
     int entries = -1; //amount of entries to be printed, -1 means all of them
@@ -73,7 +78,6 @@ int main(int argc, char **argv) {
         printHelp(argv[0]);
         return 0;
     }
-    
     
     PersonList list(fileName); //TODO: check for emptyness
     
