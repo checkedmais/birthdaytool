@@ -80,3 +80,8 @@ bool Person::operator<=(const Person& other)
 {
     return birthday <= other.birthday; //we leverage the work to Date::operator<=
 }
+
+bool Person::operator<(const Person& other)
+{
+    return birthday < other.birthday;
+}

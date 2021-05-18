@@ -24,6 +24,7 @@ public:
     std::string getBirthday();
     bool isFamily();
     bool operator<=(const Person& other);
+    bool operator<(const Person& other);
 
 private:
     std::string name;
