@@ -4,6 +4,8 @@
 #include "date.h"
 #include <iostream>
 
+
+//We set it to point to the next upcomming birthday
 PersonListIterator::PersonListIterator(std::list<Person>* pList_pointer) : pList_pointer{pList_pointer}
 {
     it = pList_pointer->begin();
@@ -20,6 +22,11 @@ PersonListIterator::PersonListIterator(std::list<Person>* pList_pointer) : pList
     begin = it;
 }
 
+/*
+ * The iterator is supposed to point to the end of the PersonList,
+ * we use the .end() iterator of the std::list inside of PersonList
+ */
+
 PersonListIterator::PersonListIterator(std::list<Person>* pList_pointer, bool end) : PersonListIterator(pList_pointer)
 {
     if(end)
@@ -35,7 +42,7 @@ PersonListIterator & PersonListIterator::operator++()
     {
         it = pList_pointer->begin();
     }
-    if(it == begin)
+    if(it == begin) //we cycled through every element
     {
         it = pList_pointer->end();
     }
@@ -49,7 +56,7 @@ Person & PersonListIterator::operator*()
 
 bool PersonListIterator::operator==(const PersonListIterator& other)
 {
-    return other.it == this->it;
+    return other.it == this->it; //we compare std::list<Person>::iterator
 }
 
 bool PersonListIterator::operator!=(const PersonListIterator& other)

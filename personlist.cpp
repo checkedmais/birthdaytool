@@ -13,64 +13,32 @@ PersonList::PersonList(std::string filePath) : path{filePath}
     retrieveListFromFile();
 }
 
+/*
+ * This method reads names and birthdays in specific format from a text file 
+ * it expects the list to be already sorted
+ */
+
 void PersonList::retrieveListFromFile()
 {
     //file format: name | date
     std::ifstream file;
-    file.open(path, std::ifstream::in); //todo: handle wrong path
+    file.open(path, std::ifstream::in); //TODO: handle wrong path
     std::string input;
     std::stringstream personName;
-    bool parseDate = false;
+    bool parseDate = false; //are we parsing the date right now?
+    
     while(file>>input) //parse file
     {
-        if(input == "|") //
+        if(input == "|") //finished parsing the name
         {
             parseDate = true;
             continue;
         }
         if(parseDate)
         {
-  /*          bool familyMember = false;   
-            std::stringstream h;
-            auto it = input.begin();
-            
-            //day
-            h<<*it<<*(++it);
-            int day; 
-            h >> day;
-            
-            h.str(std::string()); //reset h
-            h.clear();
-            
-            ++it; //point
-            
-            //month
-            std::stringstream h2;
-            h<<*(++it)<<*(++it);
-            int month;
-            h >> month;
-            
-            h.str(std::string()); //reset h
-            h.clear();
-            ++it; //point
-            
-            //year
-            h<<*(++it)<<*(++it)<<*(++it)<<*(++it);
-            int year;
-            h >> year;
-            
-            if((++it) != input.end()) //extra signs mean family
-            {
-                familyMember = true;
-            }
-            
-            Date date(day, month, year);
-            pList.push_back(Person(personName.str(), date, familyMember)); 
-            
-            personName.str(std::string()); //reset personName
-            personName.clear();
-            parseDate = false; */
-            pList.push_back(Person(personName.str(), input));
+            pList.push_back(Person(personName.str(), input));   //add Person to the list
+                                                                //alternatively we could use addPerson,
+                                                                //if the list is unsorted
             personName.str(std::string()); //reset personName
             personName.clear();
             parseDate = false;
@@ -106,26 +74,18 @@ void PersonList::save()
 }
 
 
-void PersonList::pr()
-{
-    for(auto it = pList.begin(); it != pList.end(); (++it))
-    {
-        std::cout<<"1. "<<(*it).getName()<<(*it).getBirthday()<<std::endl;
-    }
-}
-
 void PersonList::addPerson(const Person& other)
 {
-    if(pList.empty())
+    if(pList.empty()) //first person
     {
         pList.push_back(other);
         return;
     }
-    auto it = pList.begin();
+    auto it = pList.begin(); //we insert the person at the right position
     while((*it) <= other)
     {
         ++it;
-        if(it == pList.end())
+        if(it == pList.end()) //make sure to not dereference pList.end()
         {
             break;
         }
@@ -143,7 +103,7 @@ PersonListIterator PersonList::end()
     return PersonListIterator(&pList, true);
 }
 
-PersonListLoopIterator PersonList::beginl()
+PersonListLoopIterator PersonList::beginl() 
 {
     return PersonListLoopIterator(&pList);
 }

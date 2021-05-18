@@ -15,26 +15,10 @@ public:
      */
     Person(std::string name, Date date, bool family);
 
-    /**
-     * Copy constructor
-     *
-     * @param other TODO
-     */
     Person(const Person& other);
 
-    Person(std::string name, std::string dateFamily);
+    Person(std::string name, std::string dateFamily); //see person.cpp
     
-    /**
-     * Destructor
-     */
-    ~Person();
-
-    /**
-     * Assignment operator
-     *
-     * @param other TODO
-     * @return TODO
-     */
 
     std::string getName();
     std::string getBirthday();

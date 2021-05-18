@@ -4,7 +4,7 @@
 #include <string>
 
 /**
- * @todo write docs
+ * a Date type, which can be sorted
  */
 class Date
 {

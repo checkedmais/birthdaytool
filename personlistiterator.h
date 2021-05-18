@@ -5,7 +5,11 @@
 #include "person.h"
 
 /**
- * @todo write docs
+ * this iterator more or less wraps std::list<>::iterator
+ * its main purpose is to cycle through PersonList starting from the next
+ * upcomming birthday
+ * to check whether we cycled through the whole list, we need to save
+ * the begin-iterator
  */
 class PersonListIterator
 {

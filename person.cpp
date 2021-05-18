@@ -11,9 +11,17 @@ Person::Person(std::string name, Date date, bool family) : name{name}, birthday{
 
 Person::Person(const Person& other) : name{other.name}, birthday{other.birthday}, family{other.family}
 {
- //   birthday{Date(other.birthday)};
- //   name = other.name;
+
 }
+
+
+/*
+ * This constructor takes the date in string format and converts it to a Date-type
+ * dateFamily must be in the correct format: DD.MM.YYYYf, where f is only appended when
+ * the person is supposed to be a family member
+ */
+
+//TODO: check for wrong format
 
 Person::Person(std::string name, std::string dateFamily) : name{name}, family{false}
 {
@@ -68,12 +76,7 @@ bool Person::isFamily()
 }
 
 
-Person::~Person()
-{
-
-}
-
 bool Person::operator<=(const Person& other)
 {
-    return birthday <= other.birthday;
+    return birthday <= other.birthday; //we leverage the work to Date::operator<=
 }

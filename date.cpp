@@ -4,16 +4,15 @@
 
 Date::Date(int day, int month, int year) : year{year}, month{month}, day{day}
 {
+    
 }
 
-Date::Date(const Date& other)
+Date::Date(const Date& other) : year{other.year}, month{other.month}, day{other.day} 
 {
-    day = other.day;
-    month = other.month;
-    year = other.year;
+    
 }
 
-Date::Date() //current date
+Date::Date() //current date using <ctime>
 {
     time_t now = time(0);
     tm* today = gmtime(&now);
@@ -30,18 +29,24 @@ std::string Date::getFormattedDate()
     return helper.str();
 }
 
+
+/*
+ * this makes dates comparable, so it represents which date is earlier in the year
+ * years are ignored
+ */
+
 bool Date::operator<=(const Date& other)
 {
-    bool result = this->month < other.month;
+    bool result = (this->month) < other.month;
     if(result)
     {
         return result; // true
     }
-    if(this->month > other.month)
+    if((this->month) > other.month)
     {
         return result; //false
     }
-    if(this->day <= other.day)
+    if((this->day) <= other.day)
     {
         return true;
     }

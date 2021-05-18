@@ -16,12 +16,12 @@ int main(int argc, char **argv) {
     std::string fileName = "dates";
     bool fileSet = false;
     std::vector<Person> addHelper;
-    int entries = -1;
+    int entries = -1; //amount of entries to be printed, -1 means all of them
     
-    for(int i = 1; i < argc; i++)
+    for(int i = 1; i < argc; i++) //parsing the command line input
     {
         std::string arg = argv[i];
-        if( (arg == "-h") || (arg =="--help") )
+        if( (arg == "-h") || (arg =="--help") ) 
         {
             printHelp(argv[0]);
             return 0;
@@ -82,7 +82,7 @@ int main(int argc, char **argv) {
         list.addPerson(*it); //add new persons to the list
     }
     
-    if(entries == -1)
+    if(entries == -1) //standard procedure, print all known birthdays
     {
     
         for(auto it = list.begin(); it != list.end(); ++it) //cycle through the birthdays
@@ -94,13 +94,13 @@ int main(int argc, char **argv) {
             
             printFormatted(std::cout, 25, (*it).getName());
             printFormatted(std::cout, 25, (*it).getBirthday());
-            std::cout << "\033[0m" << std::endl;
+            std::cout << "\033[0m" << std::endl; //color back to normal
         }
     }
-    else
+    else //print the next upcomming birthdays
     {
         auto itl = list.beginl();
-        for(int q = 0; q < entries; q++)
+        for(int q = 0; q < entries; q++) //print only as many as the user wants
         {
             if((*itl).isFamily())
             {
@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
          
             printFormatted(std::cout, 25, (*itl).getName());
             printFormatted(std::cout, 25, (*itl).getBirthday());
-            std::cout << "\033[0m" << std::endl;
+            std::cout << "\033[0m" << std::endl; //color back to normal
             
             ++itl;
         }
