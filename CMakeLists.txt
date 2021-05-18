@@ -4,6 +4,6 @@ project(birthdaytool)
 
 file(GLOB SOURCES "*.cpp")
 
-add_executable(birthdaytool ${SOURCES})
+add_executable(bdaytool ${SOURCES})
 
-install(TARGETS birthdaytool RUNTIME DESTINATION bin)
+install(TARGETS bdaytool DESTINATION bin)
